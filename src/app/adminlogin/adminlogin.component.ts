@@ -9,8 +9,8 @@ import { Router } from '@angular/router';
 })
 export class AdminloginComponent implements OnInit {
 
-  username2 = 'user'
-  password2 = 'user'
+  username2 = ''
+  password2 = ''
   invalidLogin = false
 
   constructor(private router:Router, public loginservice: AdminauthService) { }

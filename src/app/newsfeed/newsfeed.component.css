@@ -6,6 +6,27 @@
                         -1px -1px 0 #000;
 }
 
+.navbar-custom{
+    background-color: black;
+}
+
+#typewriter {
+    display: inline-block;
+    border-right: 2px ; /* Cursor effect */
+    white-space: nowrap;
+    overflow: hidden;
+    animation: blink 0.7s steps(1) infinite;
+}
+  
+@keyframes blink {
+    from { border-color: black; }
+    to { border-color: transparent; }
+}
+
+#heading{
+    text-shadow: 1px 1px orange;
+}
+
 
 
 

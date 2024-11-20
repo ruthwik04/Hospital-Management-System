@@ -1,6 +1,6 @@
 <nav style="margin:auto" class="navbar navbar-expand-lg bg-dark">
         
-    <a style="color: white;" class="navbar-brand" href="#">APOLLO HOSPITALS</a>
+    <a style="color: white;" class="navbar-brand" href="#">AMRITA HOSPITALS</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -39,8 +39,18 @@
     </div>
 
     <div class="form-group">
-      <label>Blood Type</label>
-      <input type="text" class="form-control" name="blood" [(ngModel)]="patient.blood" name="blood" placeholder="Enter Blood Type">
+      <label for="blood">Blood Type</label>
+      <select id="blood" class="form-select" name="blood" [(ngModel)]="patient.blood" required>
+        <option value="" disabled selected>Select Blood Type</option>
+        <option value="O+">O+</option>
+        <option value="O-">O-</option>
+        <option value="A+">A+</option>
+        <option value="A-">A-</option>
+        <option value="AB+">AB+</option>
+        <option value="AB-">AB-</option>
+        <option value="B+">B+</option>
+        <option value="B-">B-</option>
+      </select>
     </div>
 
     <div class="form-group">

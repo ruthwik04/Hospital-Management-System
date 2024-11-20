@@ -26,41 +26,39 @@ import com.example.doclogin.repository.AppointmentRepository;
 @CrossOrigin(allowedHeaders = "*",origins = "*")
 @RequestMapping("/api/v3/")
 public class AppointmentController {
-	
+
 	@Autowired
 	private AppointmentRepository appointmentRepository;
-	
+
 	@GetMapping("/appointments")
 	public List<Appointment> getAllAppointments(){
 		return appointmentRepository.findAll();
 	}
-	
+
 	@PostMapping("/appointments")
 	public Appointment createAppointment(@RequestBody Appointment appointment) {
 		return appointmentRepository.save(appointment);
 	}
-	
+
 	@GetMapping("/appointments/{id}")
 	public ResponseEntity<Appointment> getAppointmentById(@PathVariable Long id) throws AttributeNotFoundException {
-		
+
 		Appointment appointment = appointmentRepository.findById(id)
 				.orElseThrow(() -> new AttributeNotFoundException("ABCD" + id));
-		
+
 		return ResponseEntity.ok(appointment);
 	}
-	
+
 	@DeleteMapping("/appointments/{id}")
 	public ResponseEntity<Map<String,Boolean>> deleteAppointment(@PathVariable Long id) throws AttributeNotFoundException{
-		
+
 		Appointment appointment = appointmentRepository.findById(id)
 				.orElseThrow(() -> new AttributeNotFoundException("ABCD" + id));
-		
+
 		appointmentRepository.delete(appointment);
 		Map<String, Boolean> response = new HashMap<>();
 		response.put("deleted", Boolean.TRUE);
 		return ResponseEntity.ok(response);
 	}
-	
-	
 
 }
